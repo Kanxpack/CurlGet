@@ -14,9 +14,9 @@ class CurlGet {
     	return empty(self::$instance) ? (new self()) : self::$instance; 
     }
 
-    protected static function setDefaults(string $url, array $get = NULL)
+    protected static function setDefaults(string $url, array $get = array())
     {
-		$this->defaults = [
+		self::$defaults = [
 	        CURLOPT_URL => $url. (strpos($url, '?') === FALSE ? '?' : ''). http_build_query($get),
 	        CURLOPT_HEADER => 0,
 	        CURLOPT_RETURNTRANSFER => TRUE,
@@ -26,40 +26,45 @@ class CurlGet {
 
     protected static function initialiseHandle() : self
     {
-    	$this->handle = curl_init();
+    	self::$handle = curl_init();
     	return self::getInstance();
     }
 
-    protected static function getHandle() : CurlHandle|false
+    protected static function getHandle() : \CurlHandle
     {
-    	return $this->handle;
+    	return self::$handle;
     }
 
     protected static function getDefaults() : array|false
     {
-    	return $this->defaults;
+    	return self::$defaults;
     }
 
     protected static function getOptions() : array|false
     {
-    	return $this->options;
+    	return self::$options;
     }
 
     protected static function setOptions(array $options = array()) : self
     {
-    	$this->options = $options;
+    	self::$options = $options;
     	return self::getInstance();
     }
 
     protected static function setResult(string|bool $result) : self
     {
-    	$this->result = $result;
+    	self::$result = $result;
     	return self::getInstance();
     }
 
-    public static function getResult(string|bool $result) : string|false
+    public static function getResult() : string|false
     {
     	return self::$result;
+    }
+
+    public static function getResultArray() : array
+    {
+        return json_decode(self::getResult(), true);
     }
 
     protected static function setOptionsArray(array $options = array()) : self
@@ -81,11 +86,11 @@ class CurlGet {
 	        self::getError();
 	    }
 
-	    $this->setResult($result);
+	    self::setResult($result);
 	    return self::getInstance();
     }
 
-	public static function get(string $url, array $get = NULL, array $options = array()) : self
+	public static function get(string $url, array $get = array(), array $options = array()) : self
 	{
 		self::setDefaults($url, $get);
 		self::initialiseHandle();
@@ -93,6 +98,4 @@ class CurlGet {
     	self::executeSession();
 		return self::getInstance();
 	}
-
-
 }

@@ -1,0 +1,18 @@
+{
+    "name": "kanxpack/curlget",
+    "description": "Simple PHP cUrl Get API",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Kanxpack\\CurlGet\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marco Monteiro"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

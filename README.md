@@ -130,8 +130,6 @@ public static function getResultArray() : array
 
 This static method should be called to return the default result from the get() method as an arrat instead.
 
-`
-
 ## Credits
 
 This project exists thanks to all the people who contribute.
@@ -148,19 +146,3 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 ## License
 [MIT](https://github.com/Kanxpack/CurlGet?tab=MIT-1-ov-file#readme)
-
-
-
-
-
-
-```php
-public static function get(string $url, array $get = array(), array $options = array()) : self
-{
-    self::setDefaults($url, $get);
-    self::initialiseHandle();
-    self::setOptionsArray($options);
-    self::executeSession();
-    return self::getInstance();
-}
-```

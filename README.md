@@ -89,12 +89,40 @@ Examples in this documentation will assume you imported classes of the Kanxpack\
 
 ```php
 echo CurlGet::get('https://restcountries.com/v3.1/name/portugal')->getResult();
-// This is Curl Get request that fetches the API JSON string from https://restcountries.com/v3.1/name/portugal
+// This is a a Curl Get request that fetches the API JSON string from https://restcountries.com/v3.1/name/portugal
 
 $postcodeArray = CurlGet::get('https://api.postcodes.io/postcodes/SW1A2AA')->getResultArray();
 print_r($postcodeArray);
 // This is Curl Get request that fetches the API JSON string and then converts it to an array from https://api.postcodes.io/postcodes/SW1A2AA
 ```
+
+### Reference
+
+```php
+public static function get(string $url, array $get = array(), array $options = array()) : self
+{
+    self::setDefaults($url, $get);
+    self::initialiseHandle();
+    self::setOptionsArray($options);
+    self::executeSession();
+    return self::getInstance();
+}
+```
+
+This is the main static method that handles the CUrl Get request and it returns an instance of itself.
+
+## Credits
+
+This project exists thanks to all the people who contribute.
+
+[Kanxpack](https://github.com/Kanxpack)
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
+
+## 
+
 
 
 

@@ -34,3 +34,15 @@ composer require kanxpack/curlget
     }
 }
 ```
+
+```
+<?php
+require 'vendor/autoload.php';
+
+use Kanxpack\CurlGet\CurlGet;
+
+echo CurlGet::get('https://restcountries.com/v3.1/name/portugal')->getResult();
+
+print_r(CurlGet::get('https://restcountries.com/v3.1/name/portugal')->getResultArray());
+
+```

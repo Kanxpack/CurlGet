@@ -111,6 +111,27 @@ public static function get(string $url, array $get = array(), array $options = a
 
 This is the main static method that handles the CUrl Get request and it returns an instance of itself.
 
+```php
+public static function getResult() : string|false
+{
+    return self::$result;
+}
+```
+
+This static method should be called to return the default result from the get() method. Usually the result is a string response.
+
+```php
+
+public static function getResultArray() : array
+{
+    return json_decode(self::getResult(), true);
+}
+```
+
+This static method should be called to return the default result from the get() method as an arrat instead.
+
+`
+
 ## Credits
 
 This project exists thanks to all the people who contribute.
@@ -121,7 +142,12 @@ This project exists thanks to all the people who contribute.
 
 Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
 
-## 
+[Become a sponsor via GitHub*](https://github.com/sponsors/Kanxpack)
+
+* This is a donation. No goods or services are expected in return. Any requests for refunds for those purposes will be rejected.
+
+## License
+[MIT](https://github.com/Kanxpack/CurlGet?tab=MIT-1-ov-file#readme)
 
 
 

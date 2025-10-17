@@ -18,3 +18,11 @@ $curlArray = CurlGet::get('https://restcountries.com/v3.1/name/portugal')->getRe
 
 print_r($curlArray[0]['name']['common']);
 ```
+
+## Installation
+
+### With Composer
+
+```
+composer require kanxpack/curlget
+```

@@ -35,7 +35,7 @@ composer require kanxpack/curlget
 }
 ```
 
-```
+```php
 <?php
 require 'vendor/autoload.php';
 

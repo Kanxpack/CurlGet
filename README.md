@@ -61,3 +61,38 @@ echo CurlGet::get('https://restcountries.com/v3.1/name/portugal')->getResult();
 
 print_r(CurlGet::get('https://restcountries.com/v3.1/name/portugal')->getResultArray());
 ```
+
+## Documentation
+
+The CurlGet class handles the cURL Get request in PHP.
+
+```php
+<?php
+namespace Kanxpack\CurlGet;
+
+class CurlGet {
+
+    // code here
+
+}
+```
+You can see from the code snippet above that the CurlGet class is declared in the Kanxpack\CurlGet namespace. You need to import the namespace to use Carbon without having to provide its fully qualified name each time.
+
+```php
+use Carbon\Carbon;
+```
+
+Examples in this documentation will assume you imported classes of the Kanxpack\CurlGet namespace this way.
+
+
+
+```php
+public static function get(string $url, array $get = array(), array $options = array()) : self
+{
+    self::setDefaults($url, $get);
+    self::initialiseHandle();
+    self::setOptionsArray($options);
+    self::executeSession();
+    return self::getInstance();
+}
+```

@@ -4,7 +4,7 @@ Simple PHP cUrl Get API
 
 ## Usage
 
-```ruby
+```php
 <?php
 use Kanxpack\CurlGet\CurlGet;
 
@@ -25,4 +25,12 @@ print_r($curlArray[0]['name']['common']);
 
 ```
 composer require kanxpack/curlget
+```
+
+```
+{
+    "require": {
+        "kanxpack/curlget": "^1.0"
+    }
+}
 ```

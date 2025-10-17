@@ -85,6 +85,20 @@ use Carbon\Carbon;
 Examples in this documentation will assume you imported classes of the Kanxpack\CurlGet namespace this way.
 
 
+### Instantiation
+
+```php
+echo CurlGet::get('https://restcountries.com/v3.1/name/portugal')->getResult();
+// This is Curl Get request that fetches the API JSON string from https://restcountries.com/v3.1/name/portugal
+
+$postcodeArray = CurlGet::get('https://api.postcodes.io/postcodes/SW1A2AA')->getResultArray();
+print_r($postcodeArray);
+// This is Curl Get request that fetches the API JSON string and then converts it to an array from https://api.postcodes.io/postcodes/SW1A2AA
+```
+
+
+
+
 
 ```php
 public static function get(string $url, array $get = array(), array $options = array()) : self

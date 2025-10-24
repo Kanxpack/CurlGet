@@ -53,7 +53,7 @@ Why are you not using [composer](https://getcomposer.org/)? Download the [CurlGe
 
 ```php
 <?php
-require 'path-to-Carbon-directory/autoload.php';
+require 'path-to-CurlGet-directory/autoload.php';
 
 use Kanxpack\CurlGet\CurlGet;
 
@@ -76,10 +76,10 @@ class CurlGet {
 
 }
 ```
-You can see from the code snippet above that the CurlGet class is declared in the Kanxpack\CurlGet namespace. You need to import the namespace to use Carbon without having to provide its fully qualified name each time.
+You can see from the code snippet above that the CurlGet class is declared in the Kanxpack\CurlGet namespace. You need to import the namespace to use CurlGet without having to provide its fully qualified name each time.
 
 ```php
-use Carbon\Carbon;
+use CurlGet\CurlGet;
 ```
 
 Examples in this documentation will assume you imported classes of the Kanxpack\CurlGet namespace this way.
